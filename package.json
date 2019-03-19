@@ -1,0 +1,42 @@
+{
+	"name": "tar-compress-cli",
+	"version": "0.0.1",
+	"description": "Use tar to pack and unpack file",
+	"bin": {
+		"tar-compress-cli": "src/index.js"
+	},
+	"scripts": {
+		"lint": "eslint src",
+		"prettify": "prettier --write src/**/*js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/VicSolWang/tar-compress-cli.git"
+	},
+	"keywords": [
+		"tar",
+		"compress",
+		"cli"
+	],
+	"author": "VicSolWang",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/VicSolWang/tar-compress-cli/issues"
+	},
+	"homepage": "https://github.com/VicSolWang/tar-compress-cli#readme",
+	"dependencies": {
+		"fs-extra": "^7.0.1",
+		"tar": "^4.4.8",
+		"yargs": "^13.2.2"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^7.5.2",
+		"@commitlint/config-conventional": "^7.5.0",
+		"eslint": "^5.15.2",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-plugin-import": "^2.16.0",
+		"husky": "^1.3.1",
+		"lint-staged": "^8.1.5",
+		"prettier": "^1.16.4"
+	}
+}
