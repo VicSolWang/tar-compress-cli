@@ -1,6 +1,6 @@
 {
 	"name": "tar-compress-cli",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Use tar to pack and unpack file",
 	"bin": {
 		"tar-compress-cli": "src/index.js"
@@ -33,7 +33,7 @@
 		"@commitlint/cli": "^8.3.5",
 		"@commitlint/config-conventional": "^8.3.4",
 		"eslint": "^6.8.0",
-		"eslint-config-wzx": "^0.0.3",
+		"eslint-config-wzx": "^0.0.4",
 		"husky": "^4.2.1",
 		"lint-staged": "^10.0.7",
 		"prettier": "^1.19.1"
