@@ -12,25 +12,26 @@ const command = 'unpack';
 module.exports = {
 	command,
 	desc: 'Unpack the specified file',
-	builder: yargs => yargs
-		.options({
-			source: {
-				alias: 's',
-				describe: 'Set source file',
-				demand: true,
-				type: 'string',
-			},
-			target: {
-				alias: 't',
-				describe: 'Set target file',
-				default: [],
-				type: 'array',
-			},
-		})
-		.usage(`Usage: $0 ${command} [options]`)
-		.example(`$0 ${command} -s source.tgz -t target`)
-		.help()
-		.alias('help', 'h'),
+	builder: (yargs) =>
+		yargs
+			.options({
+				source: {
+					alias: 's',
+					describe: 'Set source file',
+					demand: true,
+					type: 'string',
+				},
+				target: {
+					alias: 't',
+					describe: 'Set target file',
+					default: [],
+					type: 'array',
+				},
+			})
+			.usage(`Usage: $0 ${command} [options]`)
+			.example(`$0 ${command} -s source.tgz -t target`)
+			.help()
+			.alias('help', 'h'),
 	handler: (argv) => {
 		const sourceFile = argv.source;
 		if (!fs.pathExistsSync(sourceFile)) {

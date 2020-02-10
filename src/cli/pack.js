@@ -13,27 +13,30 @@ const command = 'pack';
 module.exports = {
 	command,
 	desc: 'Pack the specified file',
-	builder: yargs => yargs
-		.options({
-			source: {
-				alias: 's',
-				describe: 'Set source file list',
-				demand: true,
-				type: 'array',
-			},
-			target: {
-				alias: 't',
-				describe: 'Set target file',
-				default: 'output.tgz',
-				type: 'string',
-			},
-		})
-		.usage(`Usage: $0 ${command} [options]`)
-		.example(`$0 ${command} -s source -t target.tgz`)
-		.help()
-		.alias('help', 'h'),
+	builder: (yargs) =>
+		yargs
+			.options({
+				source: {
+					alias: 's',
+					describe: 'Set source file list',
+					demand: true,
+					type: 'array',
+				},
+				target: {
+					alias: 't',
+					describe: 'Set target file',
+					default: 'output.tgz',
+					type: 'string',
+				},
+			})
+			.usage(`Usage: $0 ${command} [options]`)
+			.example(`$0 ${command} -s source -t target.tgz`)
+			.help()
+			.alias('help', 'h'),
 	handler: (argv) => {
-		const sourceFiles = argv.source.filter(item => fs.pathExistsSync(item));
+		const sourceFiles = argv.source.filter((item) =>
+			fs.pathExistsSync(item),
+		);
 		if (sourceFiles.length === 0) {
 			console.error('No such file or directory');
 			process.exit(1);
