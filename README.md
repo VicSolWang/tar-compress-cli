@@ -1,6 +1,6 @@
 # tar-compress-cli
 
-[![npm version](https://badge.fury.io/js/tar-compress-cli.svg)](https://badge.fury.io/js/tar-compress-cli)
+[![NPM version](https://img.shields.io/npm/v/tar-compress-cli.svg)](https://www.npmjs.com/package/tar-compress-cli)
 
 Use tar to pack and unpack file
 
