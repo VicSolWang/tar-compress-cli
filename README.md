@@ -15,7 +15,7 @@ Use tar to pack and unpack file
 
     tar-compress-cli <pack|unpack> [options]
 
-## Pack Command options
+## Pack command options
 
 
     -s, --source         Set source file list                        [array] [required]
@@ -27,7 +27,7 @@ Use tar to pack and unpack file
 
     tar-compress-cli pack -s source_1 source_2 -t target.tgz
 
-## Unpack Command options
+## Unpack command options
 
     -s, --source         Set source file                             [string] [required]
     -e, --extractFile    Set extract file list in the source file    [array] [default: []]

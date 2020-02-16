@@ -1,6 +1,6 @@
 {
 	"name": "tar-compress-cli",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Use tar to pack and unpack file",
 	"bin": {
 		"tar-compress-cli": "src/index.js"
