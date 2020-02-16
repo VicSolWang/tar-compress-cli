@@ -30,7 +30,7 @@ module.exports = {
 				},
 			})
 			.usage(`Usage: $0 ${command} [options]`)
-			.example(`$0 ${command} -s source -t target.tgz`)
+			.example(`$0 ${command} -s source_1 source_2 -t target.tgz`)
 			.help()
 			.alias('help', 'h'),
 	handler: (argv) => {
@@ -38,13 +38,13 @@ module.exports = {
 			fs.pathExistsSync(item),
 		);
 		if (sourceFiles.length === 0) {
-			console.error('No such file or directory');
+			console.error('No such file or directory.');
 			process.exit(1);
 		} else {
 			const targetFile = argv.target;
 			fs.ensureDir(path.dirname(targetFile), (err) => {
 				if (err) {
-					console.error('Creat directory failed');
+					console.error('Creat directory failed.');
 					process.exit(1);
 				} else {
 					tar.c(
