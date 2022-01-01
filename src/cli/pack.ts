@@ -47,13 +47,8 @@ const command: CommandModule = {
         throw new Error('No such file or directory.');
       }
       const targetFile: string = String(argv.target);
-      fs.ensureDir(path.dirname(targetFile), (err) => {
-        if (err) {
-          throw new Error('Creat directory failed.');
-        } else {
-          tar.c({ gzip: true, file: targetFile }, sourceFiles);
-        }
-      });
+      await fs.ensureDir(path.dirname(targetFile));
+      tar.c({ gzip: true, file: targetFile }, sourceFiles);
     } catch (err) {
       console.error(Object(err).message);
       process.exit(1);
