@@ -9,7 +9,7 @@ import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 
 yargs(hideBin(process.argv))
-  .commandDir('cli')
+  .commandDir('cli', { extensions: ['js', 'ts'] })
   .demandCommand()
   .help()
   .alias({
