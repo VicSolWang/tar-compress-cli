@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJs",
+    "moduleResolution": "Node",
+    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
+    "esModuleInterop": true,
+    "allowJs": true,
+    "sourceMap": false,
+    "strict": true,
+    "noEmit": false,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"]
+    },
+    "outDir": "./bin",
+    "declaration": true,
+    "declarationDir": "./types"
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
+}
