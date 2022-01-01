@@ -40,6 +40,5 @@ test.serial(
     );
     t.falsy(test4.stderr);
     t.true(await fs.pathExists('output/output/test'));
-    await rm('-rf', 'output');
   },
 );
