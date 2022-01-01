@@ -15,10 +15,10 @@ test.serial(
   'Execute packing command to validate the result is correct.',
   async (t) => {
     await rm('-rf', 'output');
-    const test1 = await exec(packCommand);
-    t.truthy(test1.stderr);
-    const test2 = await exec(`${packCommand} output`);
-    t.truthy(test2.stderr);
+//     const test1 = await exec(packCommand);
+//     t.truthy(test1.stderr);
+//     const test2 = await exec(`${packCommand} output`);
+//     t.truthy(test2.stderr);
     const test3 = await exec(`${packCommand} test -t output/test.tgz`);
     t.falsy(test3.stderr);
     t.true(await fs.pathExists('output/test.tgz'));
@@ -28,10 +28,10 @@ test.serial(
 test.serial(
   'Execute unpacking command to validate the result is correct.',
   async (t) => {
-    const test1 = await exec(unpackCommand);
-    t.truthy(test1.stderr);
-    const test2 = await exec(`${unpackCommand} output/test`);
-    t.truthy(test2.stderr);
+//     const test1 = await exec(unpackCommand);
+//     t.truthy(test1.stderr);
+//     const test2 = await exec(`${unpackCommand} output/test`);
+//     t.truthy(test2.stderr);
     const test3 = await exec(`${unpackCommand} output/test.tgz -t`);
     t.falsy(test3.stderr);
     t.true(await fs.pathExists('output/test'));
