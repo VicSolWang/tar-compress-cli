@@ -1,0 +1,39 @@
+# Logs
+/logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Package lock
+package-lock.json
+yarn.lock
+
+# Husky directory
+.husky
+
+# Coverage directory used by tools like istanbul
+coverage*
+
+# nyc test coverage
+.nyc_output
+
+# Github directory
+.github
+
+# Dependency directories
+node_modules/
+
+# Build output
+bin
+types
+
+# Test output
+output
+
+# IDE / Editor
+.idea
+.vscode
+
+# macOS
+.DS_Store
