@@ -18,12 +18,11 @@ coverage*
 # nyc test coverage
 .nyc_output
 
+# Github directory
+.github
+
 # Dependency directories
 node_modules/
-
-# Build output
-bin
-types
 
 # Test output
 output
