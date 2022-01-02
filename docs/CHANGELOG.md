@@ -1,3 +1,10 @@
+## [0.2.1](https://github.com/VicSolWang/tar-compress-cli/compare/v0.2.0...v0.2.1) (2022-01-02)
+
+
+### Bug Fixes
+
+* update README.md ([fa135f2](https://github.com/VicSolWang/tar-compress-cli/commit/fa135f2c6b9ad35769f44a456d5c0c3ada9fc822))
+
 # [0.2.0](https://github.com/VicSolWang/tar-compress-cli/compare/v0.1.1...v0.2.0) (2022-01-02)
 
 
