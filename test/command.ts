@@ -12,33 +12,41 @@ const packCommand: string = 'npx ts-node src/index.ts pack -s';
 const unpackCommand: string = 'npx ts-node src/index.ts unpack -s';
 
 test.serial(
-  'Execute packing command to validate the result is correct.',
+  'Test the full pack command.',
   async (t) => {
     await rm('-rf', 'output');
-    const test1 = await exec(packCommand);
-    t.truthy(test1.stderr);
-    const test2 = await exec(`${packCommand} output`);
-    t.truthy(test2.stderr);
-    const test3 = await exec(`${packCommand} test -t output/test.tgz`);
-    t.falsy(test3.stderr);
+    const result = await exec(`${packCommand} test -t output/test.tgz`);
+    t.falsy(result.stderr);
     t.true(await fs.pathExists('output/test.tgz'));
   },
 );
 
 test.serial(
-  'Execute unpacking command to validate the result is correct.',
+  'Test the full unpack command.',
   async (t) => {
-    const test1 = await exec(unpackCommand);
-    t.truthy(test1.stderr);
-    const test2 = await exec(`${unpackCommand} output/test`);
-    t.truthy(test2.stderr);
-    const test3 = await exec(`${unpackCommand} output/test.tgz -t`);
-    t.falsy(test3.stderr);
+    // Don't specify output directory
+    const result1 = await exec(`${unpackCommand} output/test.tgz -t`);
+    t.falsy(result1.stderr);
     t.true(await fs.pathExists('output/test'));
-    const test4 = await exec(
+    // Specify output directory
+    const result2 = await exec(
       `${unpackCommand} output/test.tgz -t output/output`,
     );
-    t.falsy(test4.stderr);
+    t.falsy(result2.stderr);
     t.true(await fs.pathExists('output/output/test'));
+  },
+);
+
+test(
+  'Test the bug command.',
+  async (t) => {
+    const result1 = await exec(packCommand);
+    t.truthy(result1.stderr);
+    const result2 = await exec(`${packCommand} output/build`);
+    t.truthy(result2.stderr);
+    const result3 = await exec(unpackCommand);
+    t.truthy(result3.stderr);
+    const result4 = await exec(`${unpackCommand} output/build`);
+    t.truthy(result4.stderr);
   },
 );
