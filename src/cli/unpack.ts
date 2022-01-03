@@ -8,7 +8,12 @@ import fs from 'fs-extra';
 import path from 'path';
 import tar from 'tar';
 import { CommandModule } from 'yargs';
-import { isEmptyValue, getFileName, getExistFiles } from '../utils/index';
+import {
+  isEmptyValue,
+  arrayUnique,
+  getFileName,
+  getExistFiles,
+} from '../utils/index';
 
 const commandName: string = getFileName(__filename, __dirname);
 
@@ -54,9 +59,7 @@ const command: CommandModule = {
       if (isEmptyValue(sourceFileArray)) {
         throw new Error('No such file or directory.');
       }
-      const extractFiles: string[] = Array.isArray(argv.extractFile)
-        ? argv.extractFile
-        : [];
+      const extractFiles: string[] = arrayUnique(argv.extractFile);
       let targetDirectory: string;
       if (isEmptyValue(String(argv.target))) {
         targetDirectory = path.dirname(path.resolve(sourceFileArray[0]));

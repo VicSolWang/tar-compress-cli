@@ -8,7 +8,12 @@ import fs from 'fs-extra';
 import path from 'path';
 import tar from 'tar';
 import { CommandModule } from 'yargs';
-import { isEmptyValue, getFileName, getExistFiles } from '../utils/index';
+import {
+  isEmptyValue,
+  arrayUnique,
+  getFileName,
+  getExistFiles,
+} from '../utils/index';
 
 const commandName: string = getFileName(__filename, __dirname);
 
@@ -41,7 +46,7 @@ const command: CommandModule = {
         throw new Error('Please enter file paths.');
       }
       const sourceFiles: string[] = await getExistFiles(
-        Array.isArray(argv.source) ? argv.source : String(argv.source),
+        arrayUnique(argv.source),
       );
       if (isEmptyValue(sourceFiles)) {
         throw new Error('No such file or directory.');
