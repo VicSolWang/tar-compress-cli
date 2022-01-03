@@ -25,13 +25,20 @@ const isEmptyValue = (value: any): boolean => {
   }
 };
 
+const arrayUnique = (array: unknown): Array<any> => {
+  const arr: Array<any> = Array.isArray(array) ? array : [];
+  return Array.from(new Set(arr));
+};
+
 const getFileName = (filePath: string, dirPath: string): string => {
   const fileName = filePath.slice(dirPath.length + 1);
   return fileName.slice(0, fileName.lastIndexOf('.'));
 };
 
 const getExistFiles = async (files: string | string[]): Promise<string[]> => {
-  const fileArray: string[] = Array.isArray(files) ? files : [files];
+  const fileArray: string[] = (Array.isArray(files) ? files : [files]).filter(
+    (item) => !isEmptyValue(item),
+  );
   const handleFileArray: string[] = await Promise.all(
     fileArray.map(async (item) => {
       const result = await fs.pathExists(item);
@@ -41,4 +48,4 @@ const getExistFiles = async (files: string | string[]): Promise<string[]> => {
   return handleFileArray.filter((item) => !isEmptyValue(item));
 };
 
-export { getDataType, isEmptyValue, getFileName, getExistFiles };
+export { getDataType, isEmptyValue, arrayUnique, getFileName, getExistFiles };
