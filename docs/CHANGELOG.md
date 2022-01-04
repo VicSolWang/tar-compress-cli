@@ -1,3 +1,11 @@
+## [0.2.3](https://github.com/VicSolWang/tar-compress-cli/compare/v0.2.2...v0.2.3) (2022-01-04)
+
+
+### Bug Fixes
+
+* add arrayUnique function ([d93f564](https://github.com/VicSolWang/tar-compress-cli/commit/d93f564f3fbf2e9830760cc08a26afc7fc4ecac6))
+* modify test ([bf1b404](https://github.com/VicSolWang/tar-compress-cli/commit/bf1b404b3fe8d71a933eb4b59dfd2e03b4286a3f))
+
 ## [0.2.2](https://github.com/VicSolWang/tar-compress-cli/compare/v0.2.1...v0.2.2) (2022-01-03)
 
 
